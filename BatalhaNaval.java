@@ -42,6 +42,7 @@ public class BatalhaNaval{
                 tabuleiro[linha][coluna]=-1;
     }
 
+
     public static void mostraTabuleiro(int[][] tabuleiro){
         System.out.println("\t1 \t2 \t3 \t4 \t5");
         System.out.println();
