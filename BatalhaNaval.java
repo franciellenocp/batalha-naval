@@ -5,10 +5,18 @@ public class BatalhaNaval {
         //Posso criar tabuleiro aqui e em Jogador?
         Tabuleiro tabuleiro = new Tabuleiro();
         Jogador jogadorPessoa = new Jogador ();
+        JogadorRandom jogador2 = new JogadorRandom();
         Tabuleiro tabuleiroRandom = new Tabuleiro();
         int tentativas = 0, acertos = 0;
         tabuleiro.preencherJogo(matriz);
-        jogadorPessoa.posicionarNavio(matriz);
+        int cont = 0;
+        while (cont != 4) {
+            jogadorPessoa.posicionarNavio(matriz);
+            System.out.println("\n");
+            jogador2.JogadorComp(matriz);
+            System.out.println("\n");
+            cont++;
+        }
 
 
 //        int[][] navios = new int[3][2];
