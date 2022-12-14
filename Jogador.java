@@ -67,9 +67,9 @@ public class Jogador {
         String l;
         Scanner scan = new Scanner(System.in);
         if (matriz[linha][c].equals(" ")) {
-            matriz[linha][c] = "U";
+            matriz[linha][c] = "N";
         } else {
-            while (!matriz[linha][c].equals("")) {
+            while (!matriz[linha][c].equals(" ")) {
                 //Adicionar uma exception
                 System.out.println("Posição já preenchida");
                 System.out.println("Informe novamente uma linha:");
@@ -78,7 +78,7 @@ public class Jogador {
                 System.out.println("Informe novamente uma coluna");
                 c = scan.nextInt();
             }
-            matriz[linha][c] = "U";
+            matriz[linha][c] = "N";
         }
     }
 }

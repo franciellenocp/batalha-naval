@@ -1,19 +1,28 @@
+import java.util.Random;
+import java.util.Scanner;
+
+/***
+ * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
+ */
+
 public class BatalhaNaval {
 
     public static void main(String[] args) {
         String[][] matriz = new String[11][11];
+        String[][] matrizComputador = new String[11][11];
         //Posso criar tabuleiro aqui e em Jogador?
         Tabuleiro tabuleiro = new Tabuleiro();
-        Jogador jogadorPessoa = new Jogador ();
+        Jogador jogadorPessoa = new Jogador();
         JogadorRandom jogador2 = new JogadorRandom();
         Tabuleiro tabuleiroRandom = new Tabuleiro();
         int tentativas = 0, acertos = 0;
         tabuleiro.preencherJogo(matriz);
+        tabuleiro.preencherJogo(matrizComputador);
         int cont = 0;
         while (cont != 4) {
             jogadorPessoa.posicionarNavio(matriz);
             System.out.println("\n");
-            jogador2.JogadorComp(matriz);
+            jogador2.JogadorComp(matrizComputador);
             System.out.println("\n");
             cont++;
         }
@@ -21,11 +30,14 @@ public class BatalhaNaval {
 
 //        int[][] navios = new int[3][2];
 //        int[] tiro = new int[2];
+//        int[][] tabuleiro = new int[5][5];
 //        inicializaTabuleiro(tabuleiro);
 //        iniciaNavios(navios);
 //
 //        System.out.println();
 //
+//        int tentativas = 0;
+//        int acertos = 0;
 //        do{
 //            mostraTabuleiro(tabuleiro);
 //            darTiro(tiro);

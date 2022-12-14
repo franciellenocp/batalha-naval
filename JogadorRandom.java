@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class JogadorRandom {
 
     Random random = new Random();
-    public void JogadorComp(String[][] matriz) {
+    public void JogadorComp(String[][] matrizComputador) {
         Tabuleiro tabuleiro = new Tabuleiro();
         int l;
         int c;
@@ -12,16 +12,17 @@ public class JogadorRandom {
         System.out.println("Computador");
         l = random.nextInt(9) + 1;
         c = random.nextInt(9) + 1;
-        validarPosicoes(matriz, c, l);
-        tabuleiro.imprimirJogo(matriz);
+        validarPosicoes(matrizComputador, c, l);
+        tabuleiro.imprimirJogo(matrizComputador);
 
     }
+
 
     public static void validarPosicoes(String matriz[][], int c, int l) {
         Random random = new Random();
 
         if (matriz[l][c].equals(" ")) {
-            matriz[l][c] = "N";
+            matriz[l][c] = "u";
         } else {
             l = random.nextInt(9) + 1;
             c = random.nextInt(9) + 1;
