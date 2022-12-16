@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.Scanner;
-
 /***
  * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
  */
@@ -8,6 +5,7 @@ import java.util.Scanner;
 public class BatalhaNaval {
 
     public static void main(String[] args) {
+
         String[][] matriz = new String[11][11];
         String[][] matrizComputador = new String[11][11];
         //Posso criar tabuleiro aqui e em Jogador?
@@ -25,8 +23,10 @@ public class BatalhaNaval {
             jogador2.JogadorComp(matrizComputador);
             System.out.println("\n");
             cont++;
-        }
 
+        }
+    }
+}
 
 //        int[][] navios = new int[3][2];
 //        int[] tiro = new int[2];
@@ -153,5 +153,3 @@ public class BatalhaNaval {
 //            tabuleiro[tiro[0]][tiro[1]]=0;
 //    }
 
-    }
-}

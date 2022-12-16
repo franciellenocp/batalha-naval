@@ -9,6 +9,7 @@ public class Jogador {
         int quantidade_navio = 1;
 
         tabuleiro.imprimirJogo(matriz);
+        
         System.out.printf("Vamos posicionar o " + quantidade_navio + "º navio (s) no jogo\n");
         quantidade_navio++;
         System.out.println("Digite a linha desejada:");
@@ -32,7 +33,7 @@ public class Jogador {
             }
             linha = converterLinha(l);
             validarPosicoes(matriz, c, linha);
-
+        tabuleiro.imprimirJogo(matriz);
 
 
     }
