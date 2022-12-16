@@ -1,6 +1,6 @@
-package java.util.Jogadores;
+package Jogadores;
 import java.util.Random;
-import java.util.Tabuleiro.Tabuleiro;
+import Tabuleiro.Tabuleiro;
 
 public class JogadorRandom {
 

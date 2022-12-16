@@ -1,11 +1,18 @@
+package ComecarJogo;
+
+import java.util.Random;
+
 public class TurnoJogador {
+
     public static char vezJogada(int turnojogada) {
+        Random random = new Random();
+        turnojogada = random.nextInt(10);
         if (turnojogada % 2 == 0) {
             System.out.println("\nSua jogada\n");
-            return 'P';
+            return 'J';
         } else {
             System.out.println("\nJogada do oponente\n");
-            return 'R';
+            return 'C';
         }
     }
     public static boolean Vitoria(String[][] matriz, String[][] matrizComputador, int nSubmarino) {
@@ -38,6 +45,10 @@ public class TurnoJogador {
         } else {
             return false;
         }
+
+
+
+
     }
 
 }

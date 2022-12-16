@@ -1,9 +1,9 @@
-package java.util.Tabuleiro;
+package Tabuleiro;
 
 public class Tabuleiro {
     String[][] matriz = new String[11][11];
 
-    public static void preencherJogo(String matriz[][]) {
+    public static void preencherJogo(String[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 matriz[i][j] = " ";

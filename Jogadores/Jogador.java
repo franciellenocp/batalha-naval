@@ -1,8 +1,10 @@
-package java.util.Jogadores;
+package Jogadores;
 
 import java.util.Scanner;
-import java.util.Tabuleiro.Tabuleiro;
 
+import ComecarJogo.Validacao;
+import Tabuleiro.Tabuleiro;
+import ComecarJogo.Validacao.*;
 
 public class Jogador {
     public static void posicionarNavio(String matriz[][]) {
@@ -41,6 +43,7 @@ public class Jogador {
 
 
     }
+
 
     public static int converterLinha(String l) {
         int linha = -1;
@@ -87,8 +90,7 @@ public class Jogador {
         }
     }
 
-    public static void validarPosicoes(String[][] matriz, String[][] matrizComputador) {
-    }
+
 }
 
 
