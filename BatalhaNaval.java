@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.Scanner;
-
 /***
  * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
  */
@@ -16,6 +13,8 @@ public class BatalhaNaval {
         JogadorRandom jogador2 = new JogadorRandom();
         Tabuleiro tabuleiroRandom = new Tabuleiro();
         int tentativas = 0, acertos = 0;
+        int submarino;
+
         tabuleiro.preencherJogo(matriz);
         tabuleiro.preencherJogo(matrizComputador);
         int cont = 0;
@@ -27,6 +26,33 @@ public class BatalhaNaval {
             cont++;
         }
 
+        //jogo
+        int TJogador = 0;
+        while (true) {
+            char jogador = TurnoJogador.vezJogada(TJogador);
+            if (jogador == 'P') {
+                Jogador.validarPosicoes(matriz, matrizComputador);
+                System.out.println();
+                tabuleiro.imprimirJogo(matriz); // Imprimir tabuleiro somente quando for a vez do jogador
+            }
+
+            if (jogador == 'R') {
+                JogadorRandom.validarPosicoes(matrizComputador, matriz);
+                System.out.println();
+                tabuleiro.imprimirJogo(matrizComputador);
+            }
+
+            TJogador++;
+            boolean fim = TurnoJogador.Vitoria(matriz, matrizComputador);
+            if (fim) {
+                tabuleiro.imprimirJogo(matriz);
+                System.out.println("\n---------------------------------------------------------\n");
+                tabuleiro.imprimirJogo(matrizComputador);
+                break;
+            }
+        }
+    }
+}
 
 //        int[][] navios = new int[3][2];
 //        int[] tiro = new int[2];
@@ -153,5 +179,4 @@ public class BatalhaNaval {
 //            tabuleiro[tiro[0]][tiro[1]]=0;
 //    }
 
-    }
-}
+

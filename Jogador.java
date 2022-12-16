@@ -81,6 +81,9 @@ public class Jogador {
             matriz[linha][c] = "N";
         }
     }
+
+    public static void validarPosicoes(String[][] matriz, String[][] matrizComputador) {
+    }
 }
 
 

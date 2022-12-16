@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class JogadorRandom {
 
     Random random = new Random();
+
+    public static void validarPosicoes(String[][] matrizComputador, String[][] matriz) {
+    }
+
     public void JogadorComp(String[][] matrizComputador) {
         Tabuleiro tabuleiro = new Tabuleiro();
         int l;
@@ -26,7 +30,8 @@ public class JogadorRandom {
         } else {
             l = random.nextInt(9) + 1;
             c = random.nextInt(9) + 1;
-            validarPosicoes(matriz, c, l);
+
+        validarPosicoes(matriz, c, l);
             }
         }
 }
