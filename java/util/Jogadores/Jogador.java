@@ -1,4 +1,8 @@
+package java.util.Jogadores;
+
 import java.util.Scanner;
+import java.util.Tabuleiro.Tabuleiro;
+
 
 public class Jogador {
     public static void posicionarNavio(String matriz[][]) {
@@ -81,6 +85,9 @@ public class Jogador {
             }
             matriz[linha][c] = "N";
         }
+    }
+
+    public static void validarPosicoes(String[][] matriz, String[][] matrizComputador) {
     }
 }
 

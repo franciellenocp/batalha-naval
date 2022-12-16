@@ -1,3 +1,5 @@
+package java.util.Tabuleiro;
+
 public class Tabuleiro {
     String[][] matriz = new String[11][11];
 
