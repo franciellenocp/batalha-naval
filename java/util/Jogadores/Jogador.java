@@ -1,3 +1,5 @@
+package java.util.Jogadores;
+
 import java.util.Scanner;
 
 public class Jogador {

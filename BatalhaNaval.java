@@ -1,3 +1,7 @@
+import java.util.Jogadores.Jogador;
+import java.util.Jogadores.JogadorRandom;
+import java.util.Tabuleiro.Tabuleiro;
+
 /***
  * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
  */
@@ -7,7 +11,7 @@ public class BatalhaNaval {
     public static void main(String[] args) {
         String[][] matriz = new String[11][11];
         String[][] matrizComputador = new String[11][11];
-        //Posso criar tabuleiro aqui e em Jogador?
+        //Posso criar tabuleiro aqui e em java.util.Jogadores.Jogador?
         Tabuleiro tabuleiro = new Tabuleiro();
         Jogador jogadorPessoa = new Jogador();
         JogadorRandom jogador2 = new JogadorRandom();

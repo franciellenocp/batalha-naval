@@ -1,3 +1,4 @@
+package java.util.Jogadores;
 import java.util.Random;
 import java.util.Scanner;
 
