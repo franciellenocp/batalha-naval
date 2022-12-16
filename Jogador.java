@@ -6,21 +6,21 @@ public class Jogador {
         Tabuleiro tabuleiro = new Tabuleiro();
         String l;
         int c = 0, linha;
-        int quantidade_navio = 0;
-        while (quantidade_navio != 10) {
-            quantidade_navio++;
-            tabuleiro.imprimirJogo(matriz);
-            System.out.printf("Vamos posicionar o " + quantidade_navio + "º navio (s) no jogo\n");
-            System.out.println("Digite a linha desejada:");
-            l = scan.next();
-            //Exception caso digite uma posição que não existe
-            while ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
-                    !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
-                    !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
-                    !l.equalsIgnoreCase("J"))) {
-                System.out.println("Valor digitado é INVÁLIDO");
-                System.out.println("Por favor, digite novamente a linha desejada:");
-                l = scan.nextLine();
+        int quantidade_navio = 1;
+
+        tabuleiro.imprimirJogo(matriz);
+        System.out.printf("Vamos posicionar o " + quantidade_navio + "º navio (s) no jogo\n");
+        quantidade_navio++;
+        System.out.println("Digite a linha desejada:");
+        l = scan.next();
+        //Exception caso digite uma posição que não existe
+        while ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
+                !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
+                !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
+                !l.equalsIgnoreCase("J"))) {
+            System.out.println("Valor digitado é INVÁLIDO");
+            System.out.println("Por favor, digite novamente a linha desejada:");
+            l = scan.nextLine();
             }
             System.out.println("Digite a coluna desejada:");
             c = scan.nextInt();
@@ -34,7 +34,7 @@ public class Jogador {
             validarPosicoes(matriz, c, linha);
 
 
-        }
+
     }
 
     public static int converterLinha(String l) {
@@ -69,7 +69,7 @@ public class Jogador {
         if (matriz[linha][c].equals(" ")) {
             matriz[linha][c] = "N";
         } else {
-            while (!matriz[linha][c].equals("")) {
+            while (!matriz[linha][c].equals(" ")) {
                 //Adicionar uma exception
                 System.out.println("Posição já preenchida");
                 System.out.println("Informe novamente uma linha:");
