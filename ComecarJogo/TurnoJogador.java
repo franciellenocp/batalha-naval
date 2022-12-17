@@ -16,7 +16,7 @@ public class TurnoJogador {
             System.out.println("\nSua jogada\n");
             return 'J';
         } else {
-            System.out.println("\nSua do oponente\n");
+            System.out.println("\nDo seu oponente\n");
             return 'C';
         }
     }

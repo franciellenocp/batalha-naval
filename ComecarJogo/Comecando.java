@@ -27,7 +27,7 @@ public class Comecando {
 
 //        System.out.println("Quantos submarinos você quer que tenha no jogo");
 //        int cont = scan.nextInt();
-        int cont = 3;
+        int cont = 10;
         while (cont != 0) {
             jogadorPessoa.posicionarNavio(matriz, cont);
             System.out.println("\n");
@@ -37,23 +37,25 @@ public class Comecando {
         }
 
 
-        
-
-        boolean fim = TurnoJogador.Vitoria(matriz, matrizComputador, 3);
-        while (!fim) {
+        int TJogador = 0;
+        char vezJogador = TurnoJogador.vezJogada(TJogador);
+        while (!TurnoJogador.Vitoria(matriz, matrizComputador, 10)) {
 
 //            Escolhendo quem vai começar
-            int TJogador = 0;
-            char vezJogador = TurnoJogador.vezJogada(TJogador);
 
             if (vezJogador == 'J') {
                 Atirando.AtirandoJogador(matriz, matrizComputador);
-                TurnoJogador.Vitoria(matriz, matrizComputador, 3);
+                if (TurnoJogador.Vitoria(matriz, matrizComputador, 10)) {
+                    break;
+                }
+                vezJogador = 'C';
             } else if (vezJogador == 'C') {
                 System.out.println("\n");
-                Tabuleiro.imprimirJogo(matrizComputador);
                 Atirando.AtirandoComp(matriz, matrizComputador);
-                TurnoJogador.Vitoria(matriz, matrizComputador, 3);
+                if (TurnoJogador.Vitoria(matriz, matrizComputador, 10)) {
+                    break;
+                }
+                vezJogador = 'J';
 
             }
         }

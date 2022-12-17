@@ -1,11 +1,9 @@
 package ComecarJogo;
 
-import Jogadores.Jogador;
 import Tabuleiro.Tabuleiro;
 import java.util.Random;
 import java.util.Scanner;
 import static Jogadores.Jogador.converterLinha;
-import static Jogadores.Jogador.validarPosicoes;
 
 public class Atirando {
     public static void AtirandoJogador(String matriz [][], String matrizComp[][]) {
@@ -47,8 +45,8 @@ public class Atirando {
             System.out.println("Computador");
             l = random.nextInt(9) + 1;
             c = random.nextInt(9) + 1;
-            Validacao.validarTiroJogador(matriz, matrizComputador , c, l);
-            tabuleiro.imprimirJogo(matrizComputador);
+            Validacao.validarTiroComputador(matriz, matrizComputador , c, l);
+
 
         }
 

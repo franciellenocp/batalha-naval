@@ -1,7 +1,5 @@
 package ComecarJogo;
 
-import Jogadores.Jogador;
-
 import static Jogadores.Jogador.converterLinha;
 
 public class Validacao {
@@ -10,28 +8,26 @@ public class Validacao {
 
         if (matrizComp[l][c].equals("N") && matriz[l][c].equals("N")) {
             matriz[l][c] = "X";
-        } else if (matrizComp[l][c].equals("N") && matriz[l][c].equals("-")) {
+        } else if ((matrizComp[l][c].equals(" ") || matrizComp[l][c].equals("-")) && matriz[l][c].equals("N")) {
             matriz[l][c] = "n";
-        } else if (matrizComp[l][c].equals(" ")) {
+        } else if ((matrizComp[l][c].equals(" ") || matrizComp[l][c].equals("-")) && matriz[l][c].equals(" ")) {
             matriz[l][c] = "-";
-        } else if (matrizComp[l][c].equals("N")) {
+        } else if ((matriz[l][c].equals(" ") || matriz[l][c].equals("-")) && matrizComp[l][c].equals("N")) {
             matriz[l][c] = "*";
         }
 
 
     }
 
-    public static void validarTiro(String matriz [][], String matrizComp[][], int c, String linha) {
+    public static void validarTiroComputador(String matriz [][], String matrizComp[][], int c, int l) {
 
-        int l = converterLinha(linha);
-
-        if (matrizComp[l][c].equals("N") && matriz[l][c].equals("-")) {
+        if ((matriz[l][c].equals("-") || matriz[l][c].equals(" ")) && matrizComp[l][c].equals("N")) {
             matrizComp[l][c] = "n";
         } else if (matrizComp[l][c].equals("N") && matriz[l][c].equals("N")) {
             matrizComp[l][c] = "X";
-        } else if (matriz[l][c].equals("N")) {
+        } else if ((matrizComp[l][c].equals(" ") || matrizComp[l][c].equals("-")) && matriz[l][c].equals("N")) {
             matrizComp[l][c] = "*";
-        } else if (matriz[l][c].equals(" ")) {
+        } else if ((matriz[l][c].equals(" ") || matriz[l][c].equals("-")) && matrizComp[l][c].equals(" ")) {
             matrizComp[l][c] = "-";
         }
 
