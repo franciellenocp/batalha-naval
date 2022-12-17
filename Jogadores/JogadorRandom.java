@@ -1,6 +1,6 @@
-package java.util.Jogadores;
+package Jogadores;
 import java.util.Random;
-import java.util.Scanner;
+import Tabuleiro.Tabuleiro;
 
 public class JogadorRandom {
 
@@ -27,7 +27,7 @@ public class JogadorRandom {
         Random random = new Random();
 
         if (matriz[l][c].equals(" ")) {
-            matriz[l][c] = "u";
+            matriz[l][c] = "N";
         } else {
             l = random.nextInt(9) + 1;
             c = random.nextInt(9) + 1;

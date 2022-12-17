@@ -1,18 +1,22 @@
-package java.util.Jogadores;
+package Jogadores;
 
 import java.util.Scanner;
 
+import Tabuleiro.Tabuleiro;
+
 public class Jogador {
-    public static void posicionarNavio(String matriz[][]) {
+    public static void posicionarNavio(String matriz[][], int quantidade_navio) {
         Scanner scan = new Scanner(System.in);
         Tabuleiro tabuleiro = new Tabuleiro();
         String l;
         int c = 0, linha;
-        int quantidade_navio = 1;
+
 
         tabuleiro.imprimirJogo(matriz);
+
         System.out.printf("Vamos posicionar o " + quantidade_navio + "º navio (s) no jogo\n");
-        quantidade_navio++;
+
+
         System.out.println("Digite a linha desejada:");
         l = scan.next();
         //Exception caso digite uma posição que não existe
@@ -34,10 +38,11 @@ public class Jogador {
             }
             linha = converterLinha(l);
             validarPosicoes(matriz, c, linha);
-
+        tabuleiro.imprimirJogo(matriz);
 
 
     }
+
 
     public static int converterLinha(String l) {
         int linha = -1;
@@ -84,8 +89,7 @@ public class Jogador {
         }
     }
 
-    public static void validarPosicoes(String[][] matriz, String[][] matrizComputador) {
-    }
+
 }
 
 

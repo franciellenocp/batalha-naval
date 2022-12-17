@@ -1,11 +1,23 @@
+package ComecarJogo;
+
+import Tabuleiro.Tabuleiro;
+
+import java.util.Random;
+
+
 public class TurnoJogador {
+
+
+
     public static char vezJogada(int turnojogada) {
+        Random random = new Random();
+        turnojogada = random.nextInt(10);
         if (turnojogada % 2 == 0) {
             System.out.println("\nSua jogada\n");
-            return 'P';
+            return 'J';
         } else {
-            System.out.println("\nJogada do oponente\n");
-            return 'R';
+            System.out.println("\nSua do oponente\n");
+            return 'C';
         }
     }
     public static boolean Vitoria(String[][] matriz, String[][] matrizComputador, int nSubmarino) {
@@ -15,7 +27,7 @@ public class TurnoJogador {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 String submarino = matriz[i][j];
-                if (Submarino == "X" || submarino == "*") {
+                if (submarino == "X" || submarino == "*") {
                     submarinosAbatidosJogador++;
                 }
             }
@@ -29,6 +41,7 @@ public class TurnoJogador {
             }
         }
         if (submarinosAbatidosJogador == nSubmarino) {
+            String jogador = "Jogador";
             System.out.println("\n" + jogador + ", você venceu!!!\n");
             return true;
         } else if (submarinosAbatidosRandom == nSubmarino) {
@@ -37,6 +50,10 @@ public class TurnoJogador {
         } else {
             return false;
         }
+
+
+
+
     }
 
 }
