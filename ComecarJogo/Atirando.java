@@ -11,29 +11,46 @@ public class Atirando {
     public static void AtirandoJogador(String matriz [][], String matrizComp[][]) {
         Scanner scan = new Scanner(System.in);
         Tabuleiro tabuleiro = new Tabuleiro();
-        int c;
+        String l;
+        int c = 0;
         int linha;
         tabuleiro.imprimirJogo(matriz);
 
-        System.out.println("Digite a linha desejada:");
-        String l = scan.next();
-        //Exception caso digite uma posição que não existe
-        while ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
-                !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
-                !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
-                !l.equalsIgnoreCase("J"))) {
-            System.out.println("Valor digitado é INVÁLIDO");
-            System.out.println("Por favor, digite novamente a linha desejada:");
-            l = scan.nextLine();
-        }
-        System.out.println("Digite a coluna desejada:");
-        c = scan.nextInt();
-        //Exception caso digite uma posição que não existe
-        while ((c <= 0) || (c > 11)) {
-            System.out.println("Valor digitado é INVÁLIDO");
-            System.out.println("Por favor, digite novamente a coluna desejada:");
-            c = scan.nextInt();
-        }
+        boolean condicaoLinha = true;
+        do {
+            try {
+                System.out.println("Digite a linha desejada:");
+                l = scan.next();
+                if ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
+                     !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
+                     !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
+                     !l.equalsIgnoreCase("J"))) {
+                    throw new IllegalArgumentException("O valor deve ser uma letra de A a J.");
+                } else {
+                    condicaoLinha = false;
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+                l = scan.nextLine();
+            }
+        } while (condicaoLinha);
+ 
+        boolean condicaoColuna = true;
+        do {
+            try {
+                System.out.println("Digite a coluna desejada:");
+                c = scan.nextInt();
+                if (c <= 0 || c > 11) {
+                    throw new IllegalArgumentException("O valor deve ser um número de 1 a 10.");
+                } else {
+                    condicaoColuna = false; 
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+                l = scan.nextLine();
+            }
+        } while (condicaoColuna);
+
         linha = converterLinha(l);
         Validacao.validarTiroJogador(matriz, matrizComp, c, linha);
         tabuleiro.imprimirJogo(matriz);

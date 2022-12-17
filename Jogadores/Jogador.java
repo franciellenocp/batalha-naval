@@ -16,28 +16,44 @@ public class Jogador {
 
         System.out.printf("Vamos posicionar o " + quantidade_navio + "º navio (s) no jogo\n");
 
-
-        System.out.println("Digite a linha desejada:");
-        l = scan.next();
-        //Exception caso digite uma posição que não existe
-        while ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
-                !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
-                !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
-                !l.equalsIgnoreCase("J"))) {
-            System.out.println("Valor digitado é INVÁLIDO");
-            System.out.println("Por favor, digite novamente a linha desejada:");
-            l = scan.nextLine();
+        boolean condicaoLinha = true;
+        do {
+            try {
+                System.out.println("Digite a linha desejada:");
+                l = scan.next();
+                if ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
+                     !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
+                     !l.equalsIgnoreCase("G") && !l.equalsIgnoreCase("H") && !l.equalsIgnoreCase("I") &&
+                     !l.equalsIgnoreCase("J"))) {
+                    throw new IllegalArgumentException("O valor deve ser uma letra de A a J.");
+                } else {
+                    condicaoLinha = false;
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+                l = scan.nextLine();
             }
-            System.out.println("Digite a coluna desejada:");
-            c = scan.nextInt();
-            //Exception caso digite uma posição que não existe
-            while ((c <= 0) || (c > 11)) {
-                System.out.println("Valor digitado é INVÁLIDO");
-                System.out.println("Por favor, digite novamente a coluna desejada:");
+        } while (condicaoLinha);
+        
+        boolean condicaoColuna = true;
+        do {
+            try {
+                System.out.println("Digite a coluna desejada:");
                 c = scan.nextInt();
+                if (c <= 0 || c > 11) {
+                    throw new IllegalArgumentException("O valor deve ser um número de 1 a 10.");
+                } else {
+                    condicaoColuna = false; 
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+                l = scan.nextLine();
             }
-            linha = converterLinha(l);
-            validarPosicoes(matriz, c, linha);
+        } while (condicaoColuna);
+
+        
+        linha = converterLinha(l);
+        validarPosicoes(matriz, c, linha);
         tabuleiro.imprimirJogo(matriz);
 
 
@@ -77,7 +93,6 @@ public class Jogador {
             matriz[linha][c] = "N";
         } else {
             while (!matriz[linha][c].equals(" ")) {
-                //Adicionar uma exception
                 System.out.println("Posição já preenchida");
                 System.out.println("Informe novamente uma linha:");
                 l = scan.nextLine();
@@ -88,8 +103,6 @@ public class Jogador {
             matriz[linha][c] = "N";
         }
     }
-
-
 }
 
 
