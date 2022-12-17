@@ -1,8 +1,13 @@
 package ComecarJogo;
 
+import Tabuleiro.Tabuleiro;
+
 import java.util.Random;
 
+
 public class TurnoJogador {
+
+
 
     public static char vezJogada(int turnojogada) {
         Random random = new Random();
@@ -11,7 +16,7 @@ public class TurnoJogador {
             System.out.println("\nSua jogada\n");
             return 'J';
         } else {
-            System.out.println("\nJogada do oponente\n");
+            System.out.println("\nSua do oponente\n");
             return 'C';
         }
     }

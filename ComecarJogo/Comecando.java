@@ -25,17 +25,38 @@ public class Comecando {
         tabuleiro.preencherJogo(matriz);
         tabuleiro.preencherJogo(matrizComputador);
 
-        System.out.println("Quantos submarinos você quer que tenha no jogo");
-        int cont = scan.nextInt();
+//        System.out.println("Quantos submarinos você quer que tenha no jogo");
+//        int cont = scan.nextInt();
+        int cont = 3;
         while (cont != 0) {
-            jogadorPessoa.posicionarNavio(matriz);
+            jogadorPessoa.posicionarNavio(matriz, cont);
             System.out.println("\n");
             jogador2.JogadorComp(matrizComputador);
             System.out.println("\n");
             cont--;
         }
 
-//
+
+        
+
+        boolean fim = TurnoJogador.Vitoria(matriz, matrizComputador, 3);
+        while (!fim) {
+
+//            Escolhendo quem vai começar
+            int TJogador = 0;
+            char vezJogador = TurnoJogador.vezJogada(TJogador);
+
+            if (vezJogador == 'J') {
+                Atirando.AtirandoJogador(matriz, matrizComputador);
+                TurnoJogador.Vitoria(matriz, matrizComputador, 3);
+            } else if (vezJogador == 'C') {
+                System.out.println("\n");
+                Tabuleiro.imprimirJogo(matrizComputador);
+                Atirando.AtirandoComp(matriz, matrizComputador);
+                TurnoJogador.Vitoria(matriz, matrizComputador, 3);
+
+            }
+        }
     }
 
 

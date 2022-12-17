@@ -8,15 +8,15 @@ import static Jogadores.Jogador.converterLinha;
 import static Jogadores.Jogador.validarPosicoes;
 
 public class Atirando {
-    public static void AtirandoJogador(String matriz [][], String matrizComp[][], int c, String l) {
+    public static void AtirandoJogador(String matriz [][], String matrizComp[][]) {
         Scanner scan = new Scanner(System.in);
         Tabuleiro tabuleiro = new Tabuleiro();
-        c = 0;
+        int c;
         int linha;
         tabuleiro.imprimirJogo(matriz);
 
         System.out.println("Digite a linha desejada:");
-        l = scan.next();
+        String l = scan.next();
         //Exception caso digite uma posição que não existe
         while ((!l.equalsIgnoreCase("A") && !l.equalsIgnoreCase("B") && !l.equalsIgnoreCase("C") &&
                 !l.equalsIgnoreCase("D") && !l.equalsIgnoreCase("E") && !l.equalsIgnoreCase("F") &&
@@ -35,11 +35,11 @@ public class Atirando {
             c = scan.nextInt();
         }
         linha = converterLinha(l);
-        Validacao.validarTiro(matriz, matrizComp, c, linha);
+        Validacao.validarTiroJogador(matriz, matrizComp, c, linha);
         tabuleiro.imprimirJogo(matriz);
     }
 
-    public static void AtirandoJogador(String matriz [][], String matrizComputador[][]) {
+    public static void AtirandoComp(String matriz [][], String matrizComputador[][]) {
             Random random = new Random();
             Tabuleiro tabuleiro = new Tabuleiro();
             int l;
@@ -47,7 +47,7 @@ public class Atirando {
             System.out.println("Computador");
             l = random.nextInt(9) + 1;
             c = random.nextInt(9) + 1;
-            Validacao.validarTiro(matriz, matrizComputador, c, l);
+            Validacao.validarTiroJogador(matriz, matrizComputador , c, l);
             tabuleiro.imprimirJogo(matrizComputador);
 
         }

@@ -1,14 +1,10 @@
-<<<<<<< HEAD
+
 import ComecarJogo.*;
-
-
-/***
- * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
- */
 
 public class BatalhaNaval {
 
     public static void main(String[] args) {
+
 
         Comecando.ComecandoJogo();
 
@@ -17,6 +13,7 @@ public class BatalhaNaval {
 
 
 
+
         }
     }
 
@@ -148,73 +145,8 @@ public class BatalhaNaval {
 //    }
 
 
-=======
-import java.util.Jogadores.Jogador;
-import java.util.Jogadores.JogadorRandom;
-import java.util.Tabuleiro.Tabuleiro;
 
 
-/***
- * Ideia - Criar 2 tabuleiros e verificar (Se no tabuleiro x tiver, fazer lá a regra)
- */
-
-public class BatalhaNaval {
-
-    public static void main(String[] args) {
-
-        String[][] matriz = new String[11][11];
-        String[][] matrizComputador = new String[11][11];
-
-        Tabuleiro tabuleiro = new Tabuleiro();
-        Jogador jogadorPessoa = new Jogador();
-        JogadorRandom jogador2 = new JogadorRandom();
-        Tabuleiro tabuleiroRandom = new Tabuleiro();
-        int tentativas = 0, acertos = 0;
-        int submarino;
-
-        tabuleiro.preencherJogo(matriz);
-        tabuleiro.preencherJogo(matrizComputador);
-        int cont = 0;
-        while (cont != 4) {
-            jogadorPessoa.posicionarNavio(matriz);
-            System.out.println("\n");
-            jogador2.JogadorComp(matrizComputador);
-            System.out.println("\n");
-            cont++;
-        }
-
-
-        //jogo
-        char TJogador = 0;
-        while (true) {
-            char jogador = TurnoJogador.vezJogada(TJogador);
-            if (jogador == 'P') {
-                Jogador.validarPosicoes(matriz, matrizComputador);
-                System.out.println();
-                tabuleiro.imprimirJogo(matriz);
-            } else if (jogador == 'R') {
-                JogadorRandom.validarPosicoes(matrizComputador, matriz);
-                System.out.println();
-                tabuleiro.imprimirJogo(matrizComputador);
-            }
-
-
-//
-
-//
-//            TJogador++;
-//            boolean fim = TurnoJogador.Vitoria(matriz, matrizComputador, 0);
-//            if (fim) {
-//                tabuleiro.imprimirJogo(matriz);
-//                System.out.println("\n---------------------------------------------------------\n");
-//                tabuleiro.imprimirJogo(matrizComputador);
-//                break;
-//            }
-//
-//        }
-        }
-    }
-}
 
 
 //        int[][] navios = new int[3][2];
@@ -343,4 +275,6 @@ public class BatalhaNaval {
 //    }
 
 
->>>>>>> c4ac8a3e484cae1c2b3e676581f67108ddc9657c
+
+
+
